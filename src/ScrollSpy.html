@@ -1,0 +1,29 @@
+<svelte:window on:scroll="updateClosestLink()" />
+
+<slot></slot>
+
+<script>
+	import { throttle } from 'lodash'
+	
+	export default {
+		methods: {
+			isBelowScroll (id) {
+				const element = document.getElementById(id)
+				const position = element.getBoundingClientRect()
+				return position.top > 0
+			},
+			
+			updateClosestLink: throttle(function () {
+				const { sections } = this.get()
+				const sectionsLength = sections.length
+    
+				for (let index = 0; index < sectionsLength; index++ ) {
+					if (this.isBelowScroll(sections[index].id)) {
+						this.set({ activeSectionId: sections[index].id })
+						break;
+					}
+				}
+			}, 200)
+		}
+	}
+</script>
