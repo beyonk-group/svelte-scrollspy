@@ -3,7 +3,7 @@
   "svelte": "src/index.html",
   "module": "index.mjs",
   "main": "index.js",
-  "version": "0.4.1",
+  "version": "0.0.0",
   "scripts": {
     "build": "rollup -c",
     "dev": "NODE_ENV=development rollup -cw",
