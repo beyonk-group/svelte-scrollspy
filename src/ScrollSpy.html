@@ -6,11 +6,19 @@
 	import throttle from 'lodash/throttle'
 	
 	export default {
+		data () {
+			return {
+				offset: 0
+			}
+		},
+
 		methods: {
 			isBelowScroll (id) {
+				const { offset } = this.get()
 				const element = document.getElementById(id)
 				const position = element.getBoundingClientRect()
-				return position.top > 0
+				console.log(position.top)
+				return position.top - offset > 0
 			},
 			
 			updateClosestLink: throttle(function () {
