@@ -1,24 +1,4 @@
-<div class="anchor" {id} style="top: {offset}px" />
-<div>
+<section class="scrollable-section" {id}>
   <slot></slot>
-</div>
-
-<style>
-  .anchor {
-    height: 10px;
-    width: 10px;
-    position: relative;
-    visibility: hidden;
-  }
-</style>
-
-<script>
-  export default {
-    data () {
-      return {
-        offset: 0
-      }
-    }
-  }
-</script>
+</section>
 

@@ -1,36 +1,46 @@
-<svelte:window on:scroll="updateClosestLink()" />
-
-<slot></slot>
+<div ref:container>
+	<slot></slot>
+</div>
 
 <script>
-	import throttle from 'lodash/throttle'
-	
 	export default {
 		data () {
 			return {
-				offset: 0
+				visible: []
 			}
 		},
 
-		methods: {
-			isBelowScroll (id) {
-				const { offset } = this.get()
-				const element = document.getElementById(id)
-				const position = element.getBoundingClientRect()
-				return position.top - offset > 0
-			},
-			
-			updateClosestLink: throttle(function () {
-				const { sections } = this.get()
-				const sectionsLength = sections.length
-    
-				for (let index = 0; index < sectionsLength; index++ ) {
-					if (this.isBelowScroll(sections[index].id)) {
-						this.set({ activeSectionId: sections[index].id })
-						break;
+		oncreate () {
+			const sectionElements = [].slice.call(this.refs.container.querySelectorAll('.scrollable-section'))
+			this.set({ sections: sectionElements.map(s => s.id) })
+
+			const io = new IntersectionObserver(entries => {
+				let { visible, sections } = this.get()
+				
+				entries.forEach(e => {
+					const id = e.target.id
+					if (e.isIntersecting) {
+						const op = sections.indexOf(id) < sections.indexOf(visible[0]) ? 'unshift' : 'push'
+						visible[op](id)
+					} else {
+						const visiblePosition = visible.indexOf(id)
+						visiblePosition > -1 && visible.splice(visiblePosition, 1)
 					}
-				}
-			}, 200)
+				})
+
+				this.set({ visible, activeSectionId: visible[0] })
+			}, { threshold: [ 1 ] })
+
+			sectionElements.forEach(el => {
+				io.observe(el)
+			})
+
+			this.set({ io })
+		},
+
+		ondestroy () {
+			const { io } = this.get()
+			io.disconnect()
 		}
 	}
 </script>
