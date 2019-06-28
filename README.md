@@ -26,10 +26,6 @@ npm run dev // http://localhost:12001
 npm i -D @beyonk/svelte-scrollspy
 ```
 
-```js
-import { SectionHeader, ScrollableSection, ScrollSpy } from '@beyonk/svelte-scrollspy'
-```
-
 ## Usage
 
 ```jsx
@@ -52,6 +48,8 @@ import { SectionHeader, ScrollableSection, ScrollSpy } from '@beyonk/svelte-scro
 </ScrollSpy>
 
 <script>
+  import { SectionHeader, ScrollableSection, ScrollSpy } from '@beyonk/svelte-scrollspy'
+
   let activeSectionId: undefined
   const sections = [
     { id: 'abc', title: 'Some Title', content: 'Lorem ipsum dolor...' },
