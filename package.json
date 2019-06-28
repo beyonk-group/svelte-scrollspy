@@ -29,10 +29,8 @@
   ],
   "repository": "github:beyonk-adventures/svelte-scrollspy",
   "files": [
-    "index.js",
-    "src",
-    "dist/index.mjs",
-    "dist/index.js"
+    "src/**",
+    "dist/**"
   ],
   "dependencies": {
     "intersection-observer": "^0.7.0"
