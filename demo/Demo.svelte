@@ -4,8 +4,6 @@
 
   const chance = Chance()
 
-  let activeSectionId
-
   const sections = new Array(chance.integer({ min: 6, max: 20 })).fill(0).map(s => ({
     title: chance.sentence({ words: chance.integer({ min: 1, max: 5 }) }),
     id: chance.hash(),
@@ -17,13 +15,13 @@
   }))
 </script>
 
-<ScrollSpy bind:activeSectionId={activeSectionId} {sections}>
+<ScrollSpy {sections}>
   <div class="columns">
     <div class="left column">
       <ul>
         {#each sections as section}
         <li>
-          <SectionHeader {activeSectionId} id={section.id}>
+          <SectionHeader id={section.id}>
             <a href="#{section.id}">{section.title}</a>
           </SectionHeader>
         </li>

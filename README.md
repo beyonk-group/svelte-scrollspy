@@ -29,11 +29,11 @@ npm i -D @beyonk/svelte-scrollspy
 ## Usage
 
 ```jsx
-<ScrollSpy bind:activeSectionId="activeSectionId">
+<ScrollSpy>
   <ul>
     {#each sections as section (section.id)}
     <li>
-      <SectionHeader {activeSectionId} id="{section.id}">
+      <SectionHeader id="{section.id}">
         {section.title}
       </SectionHeader>
     </li>

@@ -5,10 +5,9 @@
 
 <script>
 	import { onMount } from 'svelte'
-
-	export let activeSectionId
+	import { activeSectionId } from './store.js'
 	
-	let sections
+	let sections = []
 	let container
 	let visible = []
 	let io
@@ -29,7 +28,7 @@
 				}
 			})
 
-			activeSectionId = visible[0]
+			activeSectionId.set(visible[0])
 		}, { threshold: [ 1 ] })
 
 		sectionElements.forEach(el => {
