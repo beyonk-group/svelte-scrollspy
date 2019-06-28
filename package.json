@@ -1,6 +1,6 @@
 {
   "name": "@beyonk/svelte-scrollspy",
-  "svelte": "index.js",
+  "svelte": "src/index.js",
   "module": "dist/index.mjs",
   "main": "dist/index.js",
   "version": "2.0.2",
