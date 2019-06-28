@@ -27,17 +27,7 @@ npm i -D @beyonk/svelte-scrollspy
 ```
 
 ```js
-import SectionHeader from '@beyonk/svelte-scrollspy/src/SectionHeader.html'
-import ScrollableSection from '@beyonk/svelte-scrollspy/src/ScrollableSection.html'
-import ScrollSpy from '@beyonk/svelte-scrollspy/src/ScrollSpy.html'
-
-export default {
-	components: {
-    SectionHeader,
-    ScrollableSection,
-    ScrollSpy
-  }
-}
+import { SectionHeader, ScrollableSection, ScrollSpy } from '@beyonk/svelte-scrollspy'
 ```
 
 ## Usage
