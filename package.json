@@ -29,8 +29,7 @@
   ],
   "repository": "github:beyonk-adventures/svelte-scrollspy",
   "files": [
-    "src/index.js",
-    "src/*.svelte",
+    "src",
     "dist/index.js",
     "dist/index.mjs"
   ],
