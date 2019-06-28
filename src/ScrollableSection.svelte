@@ -2,3 +2,6 @@
   <slot></slot>
 </section>
 
+<script>
+  export let id
+</script>

@@ -4,6 +4,7 @@ import serve from 'rollup-plugin-serve'
 import resolve from 'rollup-plugin-node-resolve'
 import commonjs from 'rollup-plugin-commonjs'
 import css from 'rollup-plugin-postcss'
+import html from '@gen/rollup-plugin-generate-html'
 
 const name = pkg.name
 	.replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
@@ -16,23 +17,30 @@ const plugins = [
 	resolve(),
 	commonjs(),
 	css(),
-	svelte({
-		cascade: false,
-		store: true
-	})
+	svelte()
+]
+
+const output = [
+	{ file: `${pkg.module}`, 'format': 'es' },
+	{ file: `${pkg.main}`, 'format': 'umd', name }
 ]
 
 if (dev) {
 	plugins.push(
-		serve()
+		html({
+			template: 'demo/index.html',  // Default undefined
+      filename: 'index.html', // Default index.html
+      publicPath: 'dist' // Default undefined
+		}),
+		serve({
+			contentBase: 'dist',
+			port: 12001
+		})
 	)
 }
 
 export default {
-	input: 'src/ScrollSpy.html',
-	output: [
-		{ file: pkg.module, 'format': 'es' },
-		{ file: pkg.main, 'format': 'umd', name }
-	],
+	input: dev ? 'demo/demo.js' : 'src/index.js',
+	output,
 	plugins
 }

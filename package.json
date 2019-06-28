@@ -1,8 +1,8 @@
 {
   "name": "@beyonk/svelte-scrollspy",
-  "svelte": "src/ScrollSpy.html",
-  "module": "index.mjs",
-  "main": "index.js",
+  "svelte": "index.js",
+  "module": "dist/index.mjs",
+  "main": "dist/index.js",
   "version": "1.0.0",
   "scripts": {
     "build": "rollup -c",
@@ -10,14 +10,15 @@
     "prepublishOnly": "npm run build"
   },
   "devDependencies": {
-    "intersection-observer": "^0.5.1",
-    "rollup": "^1.1.0",
-    "rollup-plugin-commonjs": "^9.2.0",
-    "rollup-plugin-node-resolve": "^4.0.0",
-    "rollup-plugin-postcss": "^1.6.3",
-    "rollup-plugin-serve": "^1.0.0",
-    "rollup-plugin-svelte": "^5.0.1",
-    "svelte": "^2.16.0"
+    "@gen/rollup-plugin-generate-html": "^0.1.1",
+    "chance": "^1.0.18",
+    "rollup": "^1.16.2",
+    "rollup-plugin-commonjs": "^10.0.1",
+    "rollup-plugin-node-resolve": "^5.1.0",
+    "rollup-plugin-postcss": "^2.0.3",
+    "rollup-plugin-serve": "^1.0.1",
+    "rollup-plugin-svelte": "^5.1.0",
+    "svelte": "^3.6.1"
   },
   "keywords": [
     "svelte",
@@ -28,9 +29,12 @@
   ],
   "repository": "github:beyonk-adventures/svelte-scrollspy",
   "files": [
+    "index.js",
     "src",
-    "index.mjs",
-    "index.js"
+    "dist/index.mjs",
+    "dist/index.js"
   ],
-  "dependencies": {}
+  "dependencies": {
+    "intersection-observer": "^0.7.0"
+  }
 }

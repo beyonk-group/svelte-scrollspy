@@ -4,17 +4,21 @@
 
 ## Svelte Scroll Spy
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-scrollspy.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-scrollspy)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com) [![CircleCI](https://circleci.com/gh/beyonk-adventures/svelte-scrollspy.svg?style=shield)](https://circleci.com/gh/beyonk-adventures/svelte-scrollspy) [![svelte-v2](https://img.shields.io/badge/svelte-v2-orange.svg)](https://v2.svelte.dev) [![svelte-v3](https://img.shields.io/badge/svelte-v3-blueviolet.svg)](https://svelte.dev)
 
 Svelte Scroll Spy component
 
 This component uses IntersectionObservers (and a polyfill for non-supporting browsers like Safari) so that performance is quick and doesn't impact the user's experience.
 
-View the [Demo](https://svelte.technology/repl?version=2.16.0&gist=b89c13ba1041015dfe9dfc1cc1d7d521)
-
 ## Usage
 
 This library is pure javascript, so can be used with any framework you like.
+
+### Demo
+
+```
+npm run dev // http://localhost:12001
+```
 
 ### To use within a Svelte application:
 
@@ -58,18 +62,12 @@ export default {
 </ScrollSpy>
 
 <script>
-  export default {
-    data () {
-      return {
-        activeSectionId: undefined,
-        sections: [
-          { id: 'abc', title: 'Some Title', content: 'Lorem ipsum dolor...' },
-          { id: 'def', title: 'Some Other Title', content: 'Lorem ipsum dolor...' },
-          { id: 'ghi', title: 'A Different Title', content: 'Lorem ipsum dolor...' }
-        ]
-      }
-    }
-  }
+  let activeSectionId: undefined
+  const sections = [
+    { id: 'abc', title: 'Some Title', content: 'Lorem ipsum dolor...' },
+    { id: 'def', title: 'Some Other Title', content: 'Lorem ipsum dolor...' },
+    { id: 'ghi', title: 'A Different Title', content: 'Lorem ipsum dolor...' }
+  ]
 </script>
 ```
 
@@ -81,7 +79,7 @@ Therefore, you could indicate the current section in the example above by highli
 
 ```html
 <style>
-	li :global(.active) {
+	:global(.beyonk-svelte-scrollspy .active) {
 		color: red;
 	}
 </style>
