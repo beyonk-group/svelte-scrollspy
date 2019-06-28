@@ -50,7 +50,6 @@ npm i -D @beyonk/svelte-scrollspy
 <script>
   import { SectionHeader, ScrollableSection, ScrollSpy } from '@beyonk/svelte-scrollspy'
 
-  let activeSectionId: undefined
   const sections = [
     { id: 'abc', title: 'Some Title', content: 'Lorem ipsum dolor...' },
     { id: 'def', title: 'Some Other Title', content: 'Lorem ipsum dolor...' },
