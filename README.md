@@ -17,7 +17,7 @@ This library is pure javascript, so can be used with any framework you like.
 ### Demo
 
 ```
-npm run dev // http://localhost:12001
+npm run dev # http://localhost:12001
 ```
 
 ### To use within a Svelte application:
