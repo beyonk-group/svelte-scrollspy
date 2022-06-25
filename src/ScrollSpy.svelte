@@ -29,7 +29,7 @@
 			})
 
 			activeSectionId.set(visible[0])
-		}, { threshold: [ 1 ] })
+		}, { threshold: [ 0.5 ] })
 
 		sectionElements.forEach(el => {
 			io.observe(el)
