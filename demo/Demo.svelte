@@ -84,4 +84,8 @@
   :global(.beyonk-svelte-scrollspy .active a) {
     color: cornflowerblue;
   }
+
+  :global(.beyonk-svelte-scrollspy .scrollable-section) {
+    min-height: 100vh;
+  }
 </style>

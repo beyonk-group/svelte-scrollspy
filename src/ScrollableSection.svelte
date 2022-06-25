@@ -1,7 +1,9 @@
-<section class="scrollable-section" {id}>
+<section {id} class:active={$activeSectionId === id} class="scrollable-section">
   <slot></slot>
 </section>
 
 <script>
-  export let id
+	import { activeSectionId } from './store.js'
+
+	export let id
 </script>
